@@ -7,16 +7,19 @@ package com.example.gebruiker.androidproject20.Enums;
 public enum Gamemodus {
 
     //enums
-    Rikken(10, 5, "R", Overboden.Basis, true, 5),
-    Pieken(10, 5, "P", Overboden.Basis, true, 5),
-    Misere(10, 5, "M", Overboden.Basis, true, 5),
-    Schoppe_mien(10, 5, "S", Overboden.Basis, true, 5),
+    Rikken(10, 5, "R", Overboden.Basis, true, 8),
+    Pieken(60, 0, "P", Overboden.Basis, true, 1),
+    Misere(90, 5, "M", Overboden.Basis, true, 0),
+    Schoppe_mien(20, 0, "S", Overboden.Basis, true, 5),
     Troela(10, 5, "T", Overboden.Basis, true, 5),
     Beter_rikken(10, 5, "B", Overboden.Basis, true, 5),
     Open_plek(10, 5, "*P", Overboden.Basis, true, 5),
     Piek_M_praatje(10, 5, "~P", Overboden.Basis, true, 5),
     Open_misere(10, 5, "*M", Overboden.Basis, true, 5),
     Misere_M_praatje(10, 5, "~M", Overboden.Basis, true,5);
+
+    // Uitleg staat in document Drive
+
 
     //fields
     private int Points;
