@@ -1,5 +1,7 @@
 package com.example.gebruiker.androidproject20;
 
+import com.example.gebruiker.androidproject20.Enums.Gamemodus;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,6 +14,9 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+
+        Gamemodus game = Gamemodus.Rikken;
+        game.SetPoints(30);
+        assertEquals(game.getPoints(), 30);;
     }
 }
