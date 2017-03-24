@@ -1,5 +1,6 @@
 package com.example.gebruiker.androidproject20;
 
+import com.example.gebruiker.androidproject20.Classes.Players;
 import com.example.gebruiker.androidproject20.Enums.Gamemodus;
 
 import org.junit.Test;
@@ -18,5 +19,12 @@ public class ExampleUnitTest {
         Gamemodus game = Gamemodus.Rikken;
         game.SetPoints(30);
         assertEquals(game.getPoints(), 30);;
+    }
+
+    @Test
+    public void isCorrect() throws Exception {
+
+        Players player = new Players("Henk");
+        assertEquals(player.GetAbbrevation(), "HE");;
     }
 }
