@@ -1,5 +1,7 @@
 package com.example.gebruiker.androidproject20.Classes;
 
+import com.example.gebruiker.androidproject20.Enums.Gamestatus;
+
 import java.util.ArrayList;
 
 /**
@@ -12,6 +14,7 @@ public class Players {
     private int ID;
     private String name;
     private String abbrevation;
+    private Gamestatus status;
 
     private ArrayList<Score> Scorelist = new ArrayList<>();
 
@@ -30,6 +33,7 @@ public class Players {
     {
         this.name = name;
         abbrevation = name.substring(0,2).toUpperCase();
+        this.status = Gamestatus.Neutral;
     }
 
 
