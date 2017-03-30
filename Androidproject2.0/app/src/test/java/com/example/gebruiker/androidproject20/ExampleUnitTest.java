@@ -1,9 +1,13 @@
 package com.example.gebruiker.androidproject20;
 
+import com.example.gebruiker.androidproject20.Classes.Game;
 import com.example.gebruiker.androidproject20.Classes.Players;
+import com.example.gebruiker.androidproject20.Classes.Subgame;
 import com.example.gebruiker.androidproject20.Enums.Gamemodus;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -26,5 +30,30 @@ public class ExampleUnitTest {
 
         Players player = new Players("Henk");
         assertEquals(player.GetAbbrevation(), "HE");;
+    }
+
+    @Test
+    public void CalculationCheck() throws Exception {
+
+        Game game = new Game();
+
+        ArrayList<Gamemodus> gameModeList = new ArrayList<>();
+        gameModeList.add(Gamemodus.Schoppe_mien);
+        gameModeList.add(Gamemodus.Elf_Alleen);
+        gameModeList.add(Gamemodus.Dertien_Alleen);
+
+        ArrayList<Gamemodus> gameModeList2 = new ArrayList<>();
+        gameModeList2.add(Gamemodus.Rikken);
+        gameModeList2.add(Gamemodus.Beter_rikken);
+
+        Game.subgameList.add(new Subgame(gameModeList));
+        Game.subgameList.add(new Subgame(gameModeList2));
+
+        Subgame sub = Game.subgameList.get(Game.subgameList.size() -1);
+
+        sub.NewCalculation();
+
+        assertEquals(1,1);
+
     }
 }

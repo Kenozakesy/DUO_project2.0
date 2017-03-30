@@ -5,7 +5,7 @@ package com.example.gebruiker.androidproject20.Enums;
  */
 
 public enum Gamestatus {
-    Player,
-    Loser,
-    Neutral
+    Win,
+    Loss,
+    Opponent
 }

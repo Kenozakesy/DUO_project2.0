@@ -10,6 +10,6 @@ public class ActivityContestant extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.Activity_contestant);
+        setContentView(R.layout.activity_contestant);
     }
 }

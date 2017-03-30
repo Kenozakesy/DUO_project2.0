@@ -16,20 +16,20 @@ public class Game {
     public static boolean Getfinished() {return finished; }
     public static void Setfinished(boolean n) { finished = n; }
 
-
     //Lists in which we have to keep track of the games and players
     public static ArrayList<Subgame> subgameList = new ArrayList<>();
     public static Players[] Players = new Players[4];
 
+    //constructor
     public Game()
     {
         finished = false;
     }
 
     //Methods
-    public void testmethod()
+    public void WriteCurrentScore()
     {
-
+        //writes the score after a new one has just been calculated
     }
 
 
