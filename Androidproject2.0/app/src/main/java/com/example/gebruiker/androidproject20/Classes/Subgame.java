@@ -12,63 +12,34 @@ import java.util.ArrayList;
 public class Subgame {
 
     //fields
-    private Gamemodus gamemodus;
-    private int Points;
-    private int ExtraPoints;
-    private Overboden Overbod;
-    private boolean Activated;
-    private String abbrevation;
-    private int Hitsneeded;
+    private ArrayList<Gamemodus> gamemodusList;
+    private int Number;
     private int Hits;
 
     private Score[] Scorelist = new Score[4];
 
     //propertys
-    public Gamemodus GetGamemodus() {return this.gamemodus;}
+    public ArrayList<Gamemodus> GetgamemodusList() {return this.gamemodusList;}
 
-    public int Getpoints(){return this.Points;}
-    public void Setpoints(int n){this.Points = n;}
+    public int Getnumber(){return this.Number;}
+    public void Setnumber(int n){this.Number = n;}
 
-    public int GetExtrapoints() {
-        return this.ExtraPoints;
-    }
-    public void SetExtrapoints(int n) {this.ExtraPoints = n;}
+    public int GetHits(){return this.Hits;}
+    public void SetHits(int n){this.Hits = n;}
 
-    public Overboden GetOverbod() {
-        return this.Overbod;
-    }
-    public void SetOverbod(Overboden n) {this.Overbod = n;}
-
-    public boolean GetActivated() {
-        return this.Activated;
-    }
-    public void SetActivated(boolean n) {this.Activated = n;}
-
-    public String GetAbbrevation() {
-        return this.abbrevation;
-    }
-    public void SetAbbrevation(String n) {this.abbrevation = n;}
-
-    public int getHitsneeded() {
-        return this.Hitsneeded;
-    }
-    public void SetHitsneeded(int n) {this.Hitsneeded = n;}
-
-    public int getHits() {
-        return this.Hits;
-    }
-    public void SetHits(int n) {this.Hits = n;}
 
     //constructor
-    public Subgame(Gamemodus game)
+    public Subgame(int number)
     {
-        this.gamemodus = game;
-        this.Points = gamemodus.getPoints();
-        this.ExtraPoints = gamemodus.getExtrapoints();
-        this.Overbod = gamemodus.getOverbod();
-        this.abbrevation = gamemodus.getAbbrevation();
-        this.Hitsneeded = gamemodus.getHitsneeded();
+        this.Number = number;
     }
+
+    public Subgame(int number, ArrayList<Gamemodus> gamemoduslist)
+    {
+        this.Number = number;
+        this.gamemodusList = gamemoduslist;
+    }
+
 
     //methods
     public void testmethod()

@@ -6,5 +6,6 @@ package com.example.gebruiker.androidproject20.Enums;
 
 public enum Overboden {
     Basis,
-    Overbod
+    Overbod,
+    Both
 }

@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.example.gebruiker.androidproject20.R;
 
-public class Activity5 extends AppCompatActivity {
+public class ActivityContestant extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_5);
+        setContentView(R.layout.Activity_contestant);
     }
 }
