@@ -1,6 +1,7 @@
 package com.example.gebruiker.androidproject20.Classes;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Gebruiker on 24-3-2017.
@@ -17,8 +18,9 @@ public class Game {
     public static void Setfinished(boolean n) { finished = n; }
 
     //Lists in which we have to keep track of the games and players
-    public static ArrayList<Subgame> subgameList = new ArrayList<>();
-    public static Players[] Players = new Players[4];
+    private static ArrayList<Subgame> subgameList = new ArrayList<>();
+
+    private static ArrayList<Players> PlayerList = new ArrayList();
 
     //constructor
     public Game()
@@ -32,6 +34,18 @@ public class Game {
         //writes the score after a new one has just been calculated
     }
 
+    public static void Addnewplayer(ArrayList<Players> players)
+    {
+        for (Players P: players)
+        {
+            PlayerList.add(P);
+        }
+    }
 
+    public static void Reset()
+    {
+        subgameList.clear();
+        PlayerList.clear();
+    }
 
 }

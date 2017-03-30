@@ -15,6 +15,7 @@ public class Players {
     private String name;
     private String abbrevation;
     private Gamestatus status;
+    private int TotalScore;
 
     private ArrayList<Score> Scorelist = new ArrayList<>();
 
@@ -33,9 +34,8 @@ public class Players {
     {
         this.name = name;
         abbrevation = name.substring(0,2).toUpperCase();
-        this.status = Gamestatus.Neutral;
+        this.status = Gamestatus.Opponent;
     }
-
 
     //methods
 
