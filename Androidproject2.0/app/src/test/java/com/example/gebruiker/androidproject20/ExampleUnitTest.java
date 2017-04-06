@@ -1,5 +1,9 @@
 package com.example.gebruiker.androidproject20;
 
+import android.graphics.Color;
+import android.view.View;
+import android.widget.Button;
+
 import com.example.gebruiker.androidproject20.Classes.Game;
 import com.example.gebruiker.androidproject20.Classes.Players;
 import com.example.gebruiker.androidproject20.Classes.Subgame;
@@ -35,25 +39,7 @@ public class ExampleUnitTest {
     @Test
     public void CalculationCheck() throws Exception {
 
-        Game game = new Game();
-
-        ArrayList<Gamemodus> gameModeList = new ArrayList<>();
-        gameModeList.add(Gamemodus.Schoppe_mien);
-        gameModeList.add(Gamemodus.Elf_Alleen);
-        gameModeList.add(Gamemodus.Dertien_Alleen);
-
-        ArrayList<Gamemodus> gameModeList2 = new ArrayList<>();
-        gameModeList2.add(Gamemodus.Rikken);
-        gameModeList2.add(Gamemodus.Beter_rikken);
-
-        Game.subgameList.add(new Subgame(gameModeList));
-        Game.subgameList.add(new Subgame(gameModeList2));
-
-        Subgame sub = Game.subgameList.get(Game.subgameList.size() -1);
-
-        sub.NewCalculation();
-
-        assertEquals(1,1);
-
     }
+
+
 }

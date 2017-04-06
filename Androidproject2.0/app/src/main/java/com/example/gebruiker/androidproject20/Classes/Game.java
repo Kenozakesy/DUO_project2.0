@@ -18,9 +18,9 @@ public class Game {
     public static void Setfinished(boolean n) { finished = n; }
 
     //Lists in which we have to keep track of the games and players
-    private static ArrayList<Subgame> subgameList = new ArrayList<>();
+    public static ArrayList<Subgame> subgameList = new ArrayList<>();
 
-    private static ArrayList<Players> PlayerList = new ArrayList();
+    public static ArrayList<Players> PlayerList = new ArrayList();
 
     //constructor
     public Game()
@@ -40,6 +40,11 @@ public class Game {
         {
             PlayerList.add(P);
         }
+    }
+
+    public static void AddnewSubGame(Subgame prSubgame)
+    {
+        subgameList.add(prSubgame);
     }
 
     public static void Reset()
