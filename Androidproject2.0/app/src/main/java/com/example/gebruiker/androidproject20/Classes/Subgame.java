@@ -1,6 +1,10 @@
 package com.example.gebruiker.androidproject20.Classes;
 
+import android.graphics.Color;
+import android.widget.Button;
+
 import com.example.gebruiker.androidproject20.Enums.Gamemodus;
+import com.example.gebruiker.androidproject20.Enums.Gamestatus;
 import com.example.gebruiker.androidproject20.Enums.Overboden;
 
 import java.util.ArrayList;
@@ -13,6 +17,8 @@ public class Subgame {
 
     //fields
     private ArrayList<Gamemodus> gamemodusList;
+    private ArrayList<Players> PlayerList;
+    private ArrayList<Button> Buttonlist;
 
     //id van de subgame
     private static int Number = 0;
@@ -20,11 +26,15 @@ public class Subgame {
 
     private int Hits;
     private int TotalPoints;
+    private int PlayerScore;
+    private int OpponentScore;
+
     private Gamemodus playedGamemodus;
 
-    private Score[] Scorelist = new Score[4];
+    private ArrayList<Score> Scorelist = new ArrayList<Score>();
 
     //propertys
+    public ArrayList<Score> GetScoreList() {return this.Scorelist;}
     public ArrayList<Gamemodus> GetgamemodusList() {return this.gamemodusList;}
 
     public int Getnumber(){return this.Number;}
@@ -36,11 +46,14 @@ public class Subgame {
 
     //constructor
 
-    public Subgame(ArrayList<Gamemodus> gamemoduslist)
+    public Subgame(ArrayList<Gamemodus> gamemoduslist, int hits)
     {
         Number++;
         this.NumberToView = Number;
         this.gamemodusList = gamemoduslist;
+        this.Hits = hits;
+
+        //this.Buttonlist = Buttonlist;
     }
 
     //methods
@@ -58,27 +71,29 @@ public class Subgame {
         Gamemodus game = gamemodusList.get(gamemodusList.size() -1);
         this.playedGamemodus = game;
 
+        Score score = new Score(Gamestatus.Opponent);
+
         switch(game)
         {
             case Schoppe_mien:
-                //call method
+                SchoppeMien();
                 break;
             case Rikken:
-                //call method
+                Rikken();
                 break;
             case Beter_rikken:
-                //call method
+                Rikken();
                 break;
             case Pieken:
-                //call method
-                break;
-            case Misere:
                 //call method
                 break;
             case Open_piek:
                 //call method
                 break;
             case Piek_M_praatje:
+                //call method
+                break;
+            case Misere:
                 //call method
                 break;
             case Open_misere:
@@ -88,37 +103,153 @@ public class Subgame {
                 //call method
                 break;
             case Acht_Alleen:
-                //call method
+                Number_Alleen();
                 break;
             case Negen_Alleen:
-                //call method
+                Number_Alleen();
                 break;
             case Tien_Alleen:
-                //call method
+                Number_Alleen();
                 break;
             case Elf_Alleen:
-                //call method
+                Number_Alleen();
                 break;
             case Twaalf_Alleen:
-                //call method
+                Number_Alleen();
                 break;
             case Dertien_Alleen:
-                //call method
+                Dertien_Alleen();
                 break;
             case Troela:
-                //call method
+                Rikken();
                 break;
             default:
                 //do nothing
         }
-
+        //zorgt ervoor dat een nieuwe score kan worden aangemaakt
+        CreateNewScore();
     }
 
-    public void Rikken()
+    //Card methods
+    public void SchoppeMien()
     {
+        int Opponent = 0;
+        int Player = 0;
+        //hier scores berekenen
+        for (Button B: Buttonlist)
+        {
+            if(B.getSolidColor() == Color.YELLOW)
+            {
+                Player++;
+            }
+            else
+            {
+                Opponent++;
+            }
+        }
+
+        if(Opponent == Player)
+        {
+            this.PlayerScore = 20;
+            this.OpponentScore = -20;
+        }
+        else
+        {
+            this.PlayerScore = 15;
+            this.OpponentScore = -45;
+        }
+    }
+
+    public void Rikken() //(beter_rikken & troela)
+    {
+        int hitsneed = this.playedGamemodus.getHitsneeded();
+
+        //hier scores berekenen
+        int hitPoints = 0;
+        if(this.Hits >= hitsneed)
+        {
+            this.PlayerScore = 10 + (5 * (Hits - hitsneed));
+            this.OpponentScore = -10 + (-5 * (Hits - hitsneed));
+        }
+        else
+        {
+            this.PlayerScore = -10 + (-5 * (hitsneed - Hits));;
+            this.OpponentScore = 10 + (5 * (hitsneed - Hits));;
+        }
+
 
     }
 
+    public void Number_Alleen() //(voor alle alleen spellen met een cijfer ervoor)
+    {
+        int hitsneed = this.playedGamemodus.getHitsneeded();
+
+        if(this.Hits >= hitsneed)
+        {
+            this.PlayerScore = playedGamemodus.getPoints() + (playedGamemodus.getExtrapoints() * 3 * (Hits - hitsneed));
+            this.OpponentScore = (-playedGamemodus.getPoints() / 3) + (-playedGamemodus.getExtrapoints() * (Hits - hitsneed));
+        }
+        else
+        {
+            this.PlayerScore = -playedGamemodus.getPoints() + (-playedGamemodus.getExtrapoints() * 3 * (hitsneed - Hits));
+            this.OpponentScore = (playedGamemodus.getPoints() / 3) + (playedGamemodus.getExtrapoints() * (hitsneed - Hits));
+        }
+    }
+
+    public void Dertien_Alleen()
+    {
+        int hitsneed = this.playedGamemodus.getHitsneeded();
+
+        if(this.Hits >= hitsneed)
+        {
+            this.PlayerScore = playedGamemodus.getPoints();
+            this.OpponentScore = (-playedGamemodus.getPoints() / 3);
+        }
+        else
+        {
+            this.PlayerScore = -playedGamemodus.getPoints() + (-playedGamemodus.getExtrapoints() * 3 * (hitsneed - Hits));
+            this.OpponentScore = (playedGamemodus.getPoints() / 3) + (playedGamemodus.getExtrapoints() * (hitsneed - Hits));
+        }
+    }
+
+
+
+
+
+    //create a new score
+    public void CreateNewScore()
+    {
+        for (Button B : Buttonlist)
+        {
+            Players player = null;
+            //get/create correct player
+            for (Players P:Game.PlayerList)
+            {
+                if(B.getText().toString() == P.GetName())
+                {
+                    player = P;
+                }
+            }
+
+            if(player != null)
+            {
+                //determine status
+                Gamestatus prstat;
+                if (B.getSolidColor() == Color.YELLOW) {
+                    prstat = Gamestatus.Player;
+                } else {
+                    prstat = Gamestatus.Opponent;
+                }
+
+                if (prstat == Gamestatus.Player) {
+                    Score score = new Score(PlayerScore, prstat, player);
+                } else {
+                    Score score = new Score(OpponentScore, prstat, player);
+                }
+            }
+
+        }
+    }
 
 
 

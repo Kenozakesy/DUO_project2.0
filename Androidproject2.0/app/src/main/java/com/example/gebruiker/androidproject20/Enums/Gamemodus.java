@@ -22,7 +22,7 @@ public enum Gamemodus {
     Tien_Alleen(90, 5, "10A", Overboden.Overbod, true, 10),
     Elf_Alleen(120, 5, "11A", Overboden.Overbod, true, 11),
     Twaalf_Alleen(180, 5, "12A", Overboden.Overbod, true, 12),
-    Dertien_Alleen(210, 0, "13A", Overboden.Overbod, true, 13),
+    Dertien_Alleen(210, 5, "13A", Overboden.Overbod, true, 13),
     Troela(10, 5, "T", Overboden.Both, true, 5);
 
     //fields

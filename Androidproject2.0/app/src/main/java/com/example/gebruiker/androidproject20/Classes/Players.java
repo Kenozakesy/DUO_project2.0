@@ -38,7 +38,21 @@ public class Players {
     }
 
     //methods
-
+    public void CalculateTotalScore()
+    {
+        int Score = 0;
+        //naar elke invoer van een nieuwe game bereken de nieuwe score
+        for (Subgame S :Game.subgameList)
+        {
+            for (Score SC:S.GetScoreList())
+            {
+                if(SC.GetPlayer().GetName() == this.name)
+                {
+                    Score = Score + SC.GetScore();
+                }
+            }
+        }
+    }
 
 
 }

@@ -27,11 +27,18 @@ public class Score {
     public void GetStatus(Gamestatus n) {this.status = n;}
 
     //constructor
-    public Score(int score, Gamestatus status)
+    public Score(int score, Gamestatus status, Players player)
     {
+        this.player = player;
         this.Score = score;
         this.status = status;
     }
+
+    public Score(Gamestatus status)
+    {
+        this.status = status;
+    }
+
 
     //methods
 }

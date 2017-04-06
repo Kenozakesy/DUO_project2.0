@@ -8,7 +8,11 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 import com.example.gebruiker.androidproject20.Classes.Game;
+import com.example.gebruiker.androidproject20.Classes.Subgame;
+import com.example.gebruiker.androidproject20.Enums.Gamemodus;
 import com.example.gebruiker.androidproject20.R;
+
+import java.util.ArrayList;
 
 public class ActivityGame extends AppCompatActivity {
 
@@ -48,22 +52,50 @@ public class ActivityGame extends AppCompatActivity {
 
     public void EnterNewScore(View v)
     {
+        ArrayList<Button> ButtonList = new ArrayList<>();
+        //get button info
+        Button button1 = (Button) new Button(this); //findViewById(R.id.button1);
+        Button button2 = (Button) new Button(this); //findViewById(R.id.button1);
+        Button button3 = (Button) new Button(this); //findViewById(R.id.button1);
+        Button button4 = (Button) new Button(this); //findViewById(R.id.button1);
+        ButtonList.add(button1);
+        ButtonList.add(button2);
+        ButtonList.add(button3);
+        ButtonList.add(button4);
+
+        //get combobox info (voor ophalen van game modes en slagen)
+        ArrayList<String> GameStrings = new ArrayList<>();
+
         Spinner mySpinner1=(Spinner) new Spinner(this); //findViewById(R.id.your_spinner);
         Spinner mySpinner2=(Spinner) new Spinner(this); //findViewById(R.id.your_spinner);
-        Spinner Hits =(Spinner) new Spinner(this); //findViewById(R.id.your_spinner);
 
         String Game1 = mySpinner1.getSelectedItem().toString();
+        GameStrings.add(Game1);
         String Game2 = mySpinner2.getSelectedItem().toString();
+        GameStrings.add(Game2);
 
+        Spinner Hits =(Spinner) new Spinner(this); //findViewById(R.id.your_spinner);
         String text = Hits.getSelectedItem().toString();
         int hits = Integer.parseInt(text);
 
+        //voegd te benodigde gamemodes te aan een lijst om een nieuw subgame aan te maken
+        ArrayList<Gamemodus> GameModes = new ArrayList<>();
+        for (String T: GameStrings) {
 
+                for (Gamemodus G : Gamemodus.values())
+                {
+                    if(T == G.toString())
+                    {
+                        GameModes.add(G);
+                    }
+                }
+        }
 
+        Subgame Sub = new Subgame(GameModes ,hits);
+        Game.AddnewSubGame(Sub);
 
-
-
-        //player changes color
+        //berekent nieuwe score
+        Sub.NewCalculation();
     }
 
 
@@ -84,6 +116,7 @@ public class ActivityGame extends AppCompatActivity {
 
     public void GetColor(Button prbutt)
     {
+        //player changes color
         if(prbutt.getSolidColor() == Color.YELLOW)
         {
             prbutt.setBackgroundColor(Color.GRAY);
