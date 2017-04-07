@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">Androidproject2.0</string>
+
+    <string-array name="count_games">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
 </resources>
     <!--test-->
