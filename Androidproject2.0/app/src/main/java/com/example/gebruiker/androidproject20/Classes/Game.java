@@ -6,8 +6,7 @@ import java.util.Arrays;
 /**
  * Created by Gebruiker on 24-3-2017.
  */
-//test comment
-    // HEY!!!!HOLA
+
 //singleton of the appication
 public class Game {
 
