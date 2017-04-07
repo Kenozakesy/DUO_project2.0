@@ -252,8 +252,10 @@ public class Subgame {
 
                 if (prstat == Gamestatus.Player) {
                     Score score = new Score(PlayerScore, prstat, player);
+                    //score moet nog aan lijst worden toegevoegd
                 } else {
                     Score score = new Score(OpponentScore, prstat, player);
+                    //score moet nog aan lijst worden toegevoegd
                 }
             }
 
