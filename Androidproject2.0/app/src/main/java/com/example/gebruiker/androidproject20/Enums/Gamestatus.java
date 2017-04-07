@@ -11,7 +11,8 @@ public enum Gamestatus {
 
 
     Player,
-    Opponent;
+    Opponent,
+    Loser;
 
 //    private ColorDrawable color;
 //

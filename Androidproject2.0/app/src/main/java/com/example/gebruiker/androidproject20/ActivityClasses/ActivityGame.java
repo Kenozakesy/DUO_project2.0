@@ -119,6 +119,10 @@ public class ActivityGame extends AppCompatActivity {
         //player changes color
         if(prbutt.getSolidColor() == Color.YELLOW)
         {
+            prbutt.setBackgroundColor(Color.RED);
+        }
+        else if(prbutt.getSolidColor() == Color.RED)
+        {
             prbutt.setBackgroundColor(Color.GRAY);
         }
         else

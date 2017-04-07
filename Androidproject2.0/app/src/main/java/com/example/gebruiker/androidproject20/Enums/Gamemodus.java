@@ -12,8 +12,8 @@ public enum Gamemodus {
     Beter_rikken(10, 5, "BR", Overboden.Overbod, true, 8),
     Pieken(60, 0, "P", Overboden.Basis, true, 1),
     Misere(90, 5, "M", Overboden.Basis, true, 0),
-    Open_piek(10, 5, "*P", Overboden.Overbod, true, 5),
-    Piek_M_praatje(10, 5, "~P", Overboden.Overbod, true, 5),
+    Open_piek(120, 0, "*P", Overboden.Overbod, true, 5),
+    Piek_M_praatje(165, 0, "~P", Overboden.Overbod, true, 5),
     Open_misere(10, 5, "*M", Overboden.Overbod, true, 5),
     Misere_M_praatje(10, 5, "~M", Overboden.Overbod, true,5),
 

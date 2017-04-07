@@ -28,6 +28,7 @@ public class Subgame {
     private int TotalPoints;
     private int PlayerScore;
     private int OpponentScore;
+    private int LoserScore;
 
     private Gamemodus playedGamemodus;
 
@@ -45,7 +46,6 @@ public class Subgame {
 
 
     //constructor
-
     public Subgame(ArrayList<Gamemodus> gamemoduslist, int hits)
     {
         Number++;
@@ -176,8 +176,6 @@ public class Subgame {
             this.PlayerScore = -10 + (-5 * (hitsneed - Hits));;
             this.OpponentScore = 10 + (5 * (hitsneed - Hits));;
         }
-
-
     }
 
     public void Number_Alleen() //(voor alle alleen spellen met een cijfer ervoor)
@@ -212,19 +210,69 @@ public class Subgame {
         }
     }
 
+    //en open piek en piekmpraatje
+    public void Pieken()
+    {
+        int Opponent = 0;
+        int Player = 0;
+        int Loser = 0;
+        //hier scores berekenen
+        for (Button B: Buttonlist)
+        {
+            if(B.getSolidColor() == Color.YELLOW)
+            {Player++;}
+            else if(B.getSolidColor() == Color.RED)
+            {Loser++;}
+            else{Opponent++;}
+        }
+
+        if(Opponent == Player)
+        {
+            this.PlayerScore = this.playedGamemodus.getPoints();
+            this.OpponentScore = -this.playedGamemodus.getPoints();
+        }
+        else if(Opponent == 3 && Player == 1)
+        {
+            this.PlayerScore = this.playedGamemodus.getPoints();
+            this.OpponentScore = -this.playedGamemodus.getPoints() / 3;
+        }
+        else if(Opponent == 1 && Player == 3)
+        {
+            this.PlayerScore = this.playedGamemodus.getPoints();
+            this.OpponentScore = -this.playedGamemodus.getPoints() * 3;
+        }
+        else if(Loser == 1 && Player == 2 && Opponent == 1)
+        {
+            this.PlayerScore = this.playedGamemodus.getPoints();
+            this.OpponentScore = 0;
+            this.LoserScore = -this.playedGamemodus.getPoints() * 2;
+        }
+        else if(Loser == 2 && Player == 1 && Opponent == 1)
+        {
+            this.PlayerScore = this.playedGamemodus.getPoints();
+            this.OpponentScore = 0;
+            this.LoserScore = -this.playedGamemodus.getPoints() / 2;
+        }
+        else if(Loser == 1 && Player == 1 && Opponent == 2)
+        {
+            this.PlayerScore = this.playedGamemodus.getPoints();
+            this.OpponentScore = 0;
+            this.LoserScore = -this.playedGamemodus.getPoints();
+        }
+        else
+        {
+            //do nothing
+        }
+    }
+
+    //make
     public void Misere()
     {
 
     }
 
-    public void Pieken()
-    {
 
-    }
-
-
-
-
+//needs work
     //create a new score
     public void CreateNewScore()
     {
@@ -237,6 +285,7 @@ public class Subgame {
                 if(B.getText().toString() == P.GetName())
                 {
                     player = P;
+                    break;
                 }
             }
 
@@ -246,7 +295,12 @@ public class Subgame {
                 Gamestatus prstat;
                 if (B.getSolidColor() == Color.YELLOW) {
                     prstat = Gamestatus.Player;
-                } else {
+                }
+                else if(B.getSolidColor() == Color.RED)
+                {
+                    prstat = Gamestatus.Loser;
+                }
+                else {
                     prstat = Gamestatus.Opponent;
                 }
 
