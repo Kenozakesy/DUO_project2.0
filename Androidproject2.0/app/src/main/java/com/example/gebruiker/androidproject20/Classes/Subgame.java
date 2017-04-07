@@ -212,6 +212,15 @@ public class Subgame {
         }
     }
 
+    public void Misere()
+    {
+
+    }
+
+    public void Pieken()
+    {
+
+    }
 
 
 
