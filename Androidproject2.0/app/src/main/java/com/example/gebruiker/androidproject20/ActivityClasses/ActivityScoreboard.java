@@ -12,7 +12,7 @@ public class ActivityScoreboard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scoreboard);
+        setContentView(R.layout.activity_scoreboar);
 
         //here comes code to fill in the scoreboard
     }
