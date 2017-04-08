@@ -9,5 +9,34 @@
         <item>5</item>
     </string-array>
 
+    <string-array name="count_player_one">
+        <item>10</item>
+        <item>25</item>
+        <item>40</item>
+        <item>55</item>
+        <item>70</item>
+    </string-array>
+    <string-array name="count_player_two">
+        <item>10</item>
+        <item>25</item>
+        <item>40</item>
+        <item>55</item>
+        <item>70</item>
+    </string-array>
+    <string-array name="count_player_three">
+        <item>10</item>
+        <item>25</item>
+        <item>40</item>
+        <item>55</item>
+        <item>70</item>
+    </string-array>
+    <string-array name="count_player_four">
+        <item>10</item>
+        <item>25</item>
+        <item>40</item>
+        <item>55</item>
+        <item>70</item>
+    </string-array>
+
 </resources>
     <!--test-->
