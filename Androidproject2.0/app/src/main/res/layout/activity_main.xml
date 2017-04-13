@@ -27,6 +27,7 @@
         android:layout_height="65dp"
         android:layout_marginTop="64dp"
         android:backgroundTint="@color/Light_blue_Rikken"
+        android:onClick="StartNewGame"
         android:paddingLeft="50dp"
         android:text="Nieuw spel"
         android:textAlignment="textStart"
@@ -38,7 +39,7 @@
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="65dp"
+        android:layout_width="88dp"
         android:layout_height="65dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
