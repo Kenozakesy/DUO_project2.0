@@ -121,7 +121,6 @@ public class ActivityGame extends AppCompatActivity {
 
     public void GetColor(Button prbutt)
     {
-        findViewById(R.id.btnplayerGameOne).setBackgroundColor(Color.BLUE);
         //player changes color
         if(prbutt.getTextColors().equals(Color.YELLOW))
         {

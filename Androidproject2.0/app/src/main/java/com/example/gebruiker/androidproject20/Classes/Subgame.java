@@ -26,6 +26,7 @@ public class Subgame {
 
     private int Hits;
     private int TotalPoints;
+
     private int PlayerScore;
     private int OpponentScore;
     private int LoserScore;
@@ -308,6 +309,7 @@ public class Subgame {
     //create a new score
     public void CreateNewScore()
     {
+        //get player information
         for (Button B : Buttonlist)
         {
             Players player = null;
@@ -323,6 +325,8 @@ public class Subgame {
 
             if(player != null)
             {
+                int PointToGet = 0;
+
                 //determine status
                 Gamestatus prstat;
                 if (B.getSolidColor() == Color.YELLOW) {
@@ -336,16 +340,38 @@ public class Subgame {
                     prstat = Gamestatus.Opponent;
                 }
 
-                if (prstat == Gamestatus.Player) {
-                    Score score = new Score(PlayerScore, prstat, player);
-                    //score moet nog aan lijst worden toegevoegd
-                } else if(prstat == Gamestatus.Opponent) {
-                    Score score = new Score(OpponentScore, prstat, player);
-                    //score moet nog aan lijst worden toegevoegd
-                }else {
-                    Score score = new Score(LoserScore, prstat, player);
-                    //score moet nog aan lijst worden toegevoegd
+
+                //here determine wether they lost or not
+                if(prstat == Gamestatus.Player)
+                {
+                    if(Hits >= playedGamemodus.getHitsneeded())
+                    {
+                        PointToGet = PlayerScore;
+                    }
+                    else
+                    {
+                        PointToGet = -PlayerScore;
+                    }
                 }
+                else if(prstat == Gamestatus.Opponent)
+                {
+                    if(Hits >= playedGamemodus.getHitsneeded())
+                    {
+                        PointToGet = -OpponentScore;
+                    }
+                    else
+                    {
+                        PointToGet = OpponentScore;
+                    }
+                }
+                else
+                {
+                    //loserscore here always loses
+                    PointToGet = LoserScore;
+                }
+
+                Score score = new Score(PointToGet, prstat, player);
+                Scorelist.add(score);
             }
 
         }
