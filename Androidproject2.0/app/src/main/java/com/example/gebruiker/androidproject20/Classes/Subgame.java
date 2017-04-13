@@ -85,13 +85,13 @@ public class Subgame {
                 Rikken();
                 break;
             case Pieken:
-                //call method
+                Pieken();
                 break;
             case Open_piek:
-                //call method
+                Pieken();
                 break;
             case Piek_M_praatje:
-                //call method
+                Pieken();
                 break;
             case Misere:
                 //call method
@@ -210,6 +210,9 @@ public class Subgame {
         }
     }
 
+
+    //moet later komen eerst de bovenste goed erin zetten
+
     //en open piek en piekmpraatje
     public void Pieken()
     {
@@ -268,11 +271,40 @@ public class Subgame {
     //make
     public void Misere()
     {
+        int Opponent = 0;
+        int Player = 0;
+        int Loser = 0;
+        //hier scores berekenen
+        for (Button B: Buttonlist)
+        {
+            if(B.getSolidColor() == Color.YELLOW)
+            {Player++;}
+            else if(B.getSolidColor() == Color.RED)
+            {Loser++;}
+            else{Opponent++;}
+        }
+
+        if(Player == 1 && Opponent == 3)
+        {
+            this.PlayerScore = this.playedGamemodus.getPoints();
+            this.OpponentScore = -this.playedGamemodus.getPoints();
+        }
+        else if(Player == 2 && Opponent == 2)
+        {
+            this.PlayerScore = this.playedGamemodus.getPoints();
+            this.OpponentScore = -this.playedGamemodus.getPoints() / 3;
+        }
+        else if(Player == 1 && Opponent == 2 && Loser == 1)
+        {
+            this.PlayerScore = this.playedGamemodus.getPoints();
+            this.OpponentScore = -this.playedGamemodus.getPoints() * 3;
+        }
+
 
     }
 
 
-//needs work
+//needs work (bepalen of hits gehaald zijn moet nog worden toegevoegd)
     //create a new score
     public void CreateNewScore()
     {
@@ -307,8 +339,11 @@ public class Subgame {
                 if (prstat == Gamestatus.Player) {
                     Score score = new Score(PlayerScore, prstat, player);
                     //score moet nog aan lijst worden toegevoegd
-                } else {
+                } else if(prstat == Gamestatus.Opponent) {
                     Score score = new Score(OpponentScore, prstat, player);
+                    //score moet nog aan lijst worden toegevoegd
+                }else {
+                    Score score = new Score(LoserScore, prstat, player);
                     //score moet nog aan lijst worden toegevoegd
                 }
             }
