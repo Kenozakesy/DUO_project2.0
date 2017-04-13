@@ -12,12 +12,15 @@ import android.widget.TextView;
 
 public class Adapter2 extends RecyclerView.Adapter<Adapter2.Viewholder> {
 
-    String[] country_names, country_capital;
+    String[] count_number, player_one, player_two, player_three, player_four;
 
-    public Adapter2(String[] country_names, String[] country_capital)
+    public Adapter2(String[] count_number, String[] player_one, String[] player_two, String[] player_three, String[] player_four)
     {
-        this.country_names = country_names;
-        this.country_capital = country_capital;
+        this.count_number = count_number;
+        this.player_one = player_one;
+        this.player_two = player_two;
+        this.player_three = player_three;
+        this.player_four = player_four;
     }
 
     @Override
@@ -30,27 +33,32 @@ public class Adapter2 extends RecyclerView.Adapter<Adapter2.Viewholder> {
 
     @Override
     public void onBindViewHolder(Viewholder holder, int position) {
-        holder.tv_country.setText(country_names[position]);
-        holder.tv_capital.setText(country_capital[position]);
-
+        holder.tv_count.setText(count_number[position]);
+        holder.tv_player_one.setText(player_one[position]);
+        holder.tv_player_two.setText(player_two[position]);
+        holder.tv_player_three.setText(player_three[position]);
+        holder.tv_player_four.setText(player_four[position]);
     }
 
     @Override
     public int getItemCount() {
-        return country_names.length;
+        return count_number.length;
     }
 
 
     //nieuwe class
     public static class Viewholder extends RecyclerView.ViewHolder
     {
-        TextView tv_country, tv_capital;
+        TextView tv_count, tv_player_one, tv_player_two, tv_player_three, tv_player_four;
 
         public Viewholder(View view)
         {
             super(view);
-            this.tv_country = (TextView) view.findViewById(R.id.tb_country_name);
-            this.tv_capital = (TextView) view.findViewById(R.id.tb_capital_name);
+            this.tv_count = (TextView) view.findViewById(R.id.tb_field_count);
+            this.tv_player_one = (TextView) view.findViewById(R.id.tb_field_player_one);
+            this.tv_player_two = (TextView) view.findViewById(R.id.tb_field_player_two);
+            this.tv_player_three = (TextView) view.findViewById(R.id.tb_field_player_three);
+            this.tv_player_four = (TextView) view.findViewById(R.id.tb_field_player_four);
         }
 
     }

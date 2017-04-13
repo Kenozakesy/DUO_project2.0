@@ -15,8 +15,11 @@ public class ActivityScoreboard extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String[] country = {"Netherlands", "Japan", "Greece", "Colombia", "Canada", "Austria", "France", "Jamaica", "Kenya", "switserland", "Germany"};
-    String[] capital = {"Amsterdam","Tokyo","Athens","Bogotá","Ottawa","Vienna","Paris","Kingston","Nairobi","Bern","Berlin"};
+    String[] ar_count = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
+    String[] ar_player_one = {"10","20","30","40","50","60","70","80","90","100","110"};
+    String[] ar_player_two = {"10","20","30","40","50","60","70","80","90","100","110"};
+    String[] ar_player_three = {"10","20","30","40","50","60","70","80","90","100","110"};
+    String[] ar_player_four = {"10","20","30","40","50","60","70","80","90","100","110"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +27,7 @@ public class ActivityScoreboard extends AppCompatActivity {
         setContentView(R.layout.activity_scoreboard);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-        adapter = new com.example.gebruiker.androidproject20.Adapter2(country, capital);
+        adapter = new com.example.gebruiker.androidproject20.Adapter2(ar_count, ar_player_one, ar_player_two, ar_player_three, ar_player_four);
         layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setLayoutManager(layoutManager);

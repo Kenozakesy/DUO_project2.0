@@ -3,9 +3,9 @@
     android:layout_width="match_parent" android:layout_height="60dp">
 
     <TextView
-        android:layout_width="200dp"
+        android:layout_width="60dp"
         android:layout_height="match_parent"
-        android:id="@+id/tb_country_name"
+        android:id="@+id/tb_field_count"
         android:text="Netherlands"
         android:textAppearance="?android:textAppearanceLarge"
         android:gravity="center"
@@ -13,13 +13,44 @@
         />
 
     <TextView
-        android:layout_width="200dp"
+        android:layout_width="25dp"
         android:layout_height="match_parent"
-        android:id="@+id/tb_capital_name"
+        android:id="@+id/tb_field_player_one"
         android:text="Amsterdam"
         android:textAppearance="?android:textAppearanceLarge"
         android:gravity="center"
-        android:layout_toRightOf="@+id/tb_country_name"
+        android:layout_toRightOf="@+id/tb_field_count"
         />
+
+    <TextView
+        android:layout_width="142dp"
+        android:layout_height="match_parent"
+        android:id="@+id/tb_field_player_two"
+        android:text="Amsterdam"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/tb_field_player_one"
+        />
+
+    <TextView
+        android:layout_width="27dp"
+        android:layout_height="match_parent"
+        android:id="@+id/tb_field_player_three"
+        android:text="Amsterdam"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/tb_field_player_two"
+        />
+
+    <TextView
+        android:layout_width="185dp"
+        android:layout_height="match_parent"
+        android:id="@+id/tb_field_player_four"
+        android:text="Amsterdam"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/tb_field_player_three"
+        />
+
 
 </RelativeLayout>
