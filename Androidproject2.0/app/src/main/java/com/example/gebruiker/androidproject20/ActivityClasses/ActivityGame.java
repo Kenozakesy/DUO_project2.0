@@ -1,11 +1,13 @@
 package com.example.gebruiker.androidproject20.ActivityClasses;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.gebruiker.androidproject20.Classes.Game;
 import com.example.gebruiker.androidproject20.Classes.Subgame;
@@ -28,7 +30,7 @@ public class ActivityGame extends AppCompatActivity {
     public void PlayerButton1(View v)
     {
         //player changes color
-        Button butt = (Button) new Button(this); //findViewById(R.id.button1);
+        Button butt = (Button) (Button)findViewById(R.id.btnplayerGameOne); //findViewById(R.id.button1);
         GetColor(butt);
     }
 
@@ -96,6 +98,9 @@ public class ActivityGame extends AppCompatActivity {
 
         //berekent nieuwe score
         Sub.NewCalculation();
+
+        Intent intent = new Intent(ActivityGame.this, ActivityScoreboard.class);
+        startActivity(intent);
     }
 
 
@@ -103,10 +108,10 @@ public class ActivityGame extends AppCompatActivity {
     public void LoadContext()
     {
         //give the player names
-        Button button1 = (Button) new Button(this); //need to be gotten by id
-        Button button2 = (Button) new Button(this);
-        Button button3 = (Button) new Button(this);
-        Button button4 = (Button) new Button(this);
+        Button button1 = (Button) findViewById(R.id.btnplayerGameOne); //need to be gotten by id
+        Button button2 = (Button) findViewById(R.id.btnplayerGameTwo);
+        Button button3 = (Button) findViewById(R.id.btnplayerGameThree);
+        Button button4 = (Button) findViewById(R.id.btnplayerGameFour);
 
         button1.setText(Game.PlayerList.get(0).GetName());
         button2.setText(Game.PlayerList.get(1).GetName());
@@ -116,10 +121,11 @@ public class ActivityGame extends AppCompatActivity {
 
     public void GetColor(Button prbutt)
     {
+        findViewById(R.id.btnplayerGameOne).setBackgroundColor(Color.BLUE);
         //player changes color
-        if(prbutt.getSolidColor() == Color.YELLOW)
+        if(prbutt.getTextColors().equals(Color.YELLOW))
         {
-            prbutt.setBackgroundColor(Color.RED);
+            prbutt.setTextColor(Color.RED);
         }
         else if(prbutt.getSolidColor() == Color.RED)
         {
