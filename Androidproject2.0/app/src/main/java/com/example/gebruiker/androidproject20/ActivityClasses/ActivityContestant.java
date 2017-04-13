@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.gebruiker.androidproject20.Classes.Game;
 import com.example.gebruiker.androidproject20.Classes.Players;
@@ -24,10 +25,10 @@ public class ActivityContestant extends AppCompatActivity {
     public void CreateNewgame(View v)
     {
         //first get all contestants
-        String NamePlayer1 = "Henk";   //(TextView)findViewById(R.id.edittext);
-        String NamePlayer2 = "Kees";   //(TextView)findViewById(R.id.edittext);
-        String NamePlayer3 = "Rikkert";//(TextView)findViewById(R.id.edittext);
-        String NamePlayer4 = "Wickert";//(TextView)findViewById(R.id.edittext);
+        String NamePlayer1 = ((TextView)findViewById(R.id.ptPlayerOne)).getText().toString();
+        String NamePlayer2 = ((TextView)findViewById(R.id.ptPlayerTwo)).getText().toString();
+        String NamePlayer3 = ((TextView)findViewById(R.id.ptPlayerThree)).getText().toString();
+        String NamePlayer4 = ((TextView)findViewById(R.id.ptPlayerFour)).getText().toString();
 
         if(NamePlayer1 != "" && NamePlayer2 != "" && NamePlayer3 != "" && NamePlayer4 != "")
         {
@@ -59,16 +60,16 @@ public class ActivityContestant extends AppCompatActivity {
                         }
                     });
 
-//            builder1.setNegativeButton(
-//                    "No",
-//                    new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialog, int id) {
-//                            dialog.cancel();
-//                        }
-//                    });
-//
-//            AlertDialog alert11 = builder1.create();
-//            alert11.show();
+            builder1.setNegativeButton(
+                    "No",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
 
         }
     }
