@@ -36,6 +36,7 @@ public class Subgame {
     private ArrayList<Score> Scorelist = new ArrayList<Score>();
 
     //propertys
+    public Gamemodus GetPlayedgamemodus() {return this.playedGamemodus;}
     public ArrayList<Score> GetScoreList() {return this.Scorelist;}
     public ArrayList<Gamemodus> GetgamemodusList() {return this.gamemodusList;}
 
@@ -345,30 +346,20 @@ public class Subgame {
                 if(prstat == Gamestatus.Player)
                 {
                     if(Hits >= playedGamemodus.getHitsneeded())
-                    {
-                        PointToGet = PlayerScore;
-                    }
+                    {PointToGet = PlayerScore;}
                     else
-                    {
-                        PointToGet = -PlayerScore;
-                    }
+                    {PointToGet = -PlayerScore;}
                 }
                 else if(prstat == Gamestatus.Opponent)
                 {
                     if(Hits >= playedGamemodus.getHitsneeded())
-                    {
-                        PointToGet = -OpponentScore;
-                    }
+                    {PointToGet = -OpponentScore;}
                     else
-                    {
-                        PointToGet = OpponentScore;
-                    }
+                    {PointToGet = OpponentScore;}
                 }
                 else
-                {
-                    //loserscore here always loses
-                    PointToGet = LoserScore;
-                }
+                {//loserscore here always loses
+                    PointToGet = LoserScore;}
 
                 Score score = new Score(PointToGet, prstat, player);
                 Scorelist.add(score);

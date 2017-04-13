@@ -1,12 +1,14 @@
 package com.example.gebruiker.androidproject20.ActivityClasses;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.gebruiker.androidproject20.Classes.Game;
@@ -36,19 +38,19 @@ public class ActivityGame extends AppCompatActivity {
 
     public void PlayerButton2(View v)
     {
-        Button butt = (Button) new Button(this); //findViewById(R.id.button1);
+        Button butt = (Button) findViewById(R.id.btnplayerGameTwo); //findViewById(R.id.button1);
         GetColor(butt);
     }
 
     public void PlayerButton3(View v)
     {
-        Button butt = (Button) new Button(this); //findViewById(R.id.button1);
+        Button butt = (Button) findViewById(R.id.btnplayerGameThree); //findViewById(R.id.button1);
         GetColor(butt);
     }
 
     public void PlayerButton4(View v)
     {
-        Button butt = (Button) new Button(this); //findViewById(R.id.button1);
+        Button butt = (Button) findViewById(R.id.btnplayerGameFour); //findViewById(R.id.button1);
         GetColor(butt);
     }
 
@@ -121,18 +123,21 @@ public class ActivityGame extends AppCompatActivity {
 
     public void GetColor(Button prbutt)
     {
-        //player changes color
-        if(prbutt.getTextColors().equals(Color.YELLOW))
+        ColorStateList mList = prbutt.getTextColors();
+        int color = mList.getDefaultColor();
+
+        switch(color)
         {
-            prbutt.setTextColor(Color.RED);
+            case Color.YELLOW:
+                prbutt.setTextColor(Color.RED);
+                break;
+            case Color.RED:
+                prbutt.setTextColor(Color.BLACK);
+                break;
+            default:
+                prbutt.setTextColor(Color.YELLOW);
+
         }
-        else if(prbutt.getSolidColor() == Color.RED)
-        {
-            prbutt.setBackgroundColor(Color.GRAY);
-        }
-        else
-        {
-            prbutt.setBackgroundColor(Color.YELLOW);
-        }
+
     }
 }

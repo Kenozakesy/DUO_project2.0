@@ -7,6 +7,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.example.gebruiker.androidproject20.Classes.Game;
+import com.example.gebruiker.androidproject20.Classes.GameClassArray;
+import com.example.gebruiker.androidproject20.Classes.Score;
+import com.example.gebruiker.androidproject20.Classes.Subgame;
 import com.example.gebruiker.androidproject20.R;
 
 public class ActivityScoreboard extends AppCompatActivity {
@@ -21,10 +25,25 @@ public class ActivityScoreboard extends AppCompatActivity {
     String[] ar_player_three = {"10","20","30","40","50","60","70","80","90","100","110"};
     String[] ar_player_four = {"10","20","30","40","50","60","70","80","90","100","110"};
 
+    GameClassArray[] gamesplayed;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scoreboard);
+            //correct uitlees iets maken
+        for (Subgame S: Game.subgameList) {
+
+            int score1, score2, score3, score4;
+
+            for (Score Sc: S.GetScoreList())
+            {
+
+            }
+            //GameClassArray Arrayclass = new GameClassArray(S.Getnumber(), score here + " " + S.GetPlayedgamemodus().getAbbrevation(),  );
+
+        }
+
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         adapter = new com.example.gebruiker.androidproject20.Adapter2(ar_count, ar_player_one, ar_player_two, ar_player_three, ar_player_four);
