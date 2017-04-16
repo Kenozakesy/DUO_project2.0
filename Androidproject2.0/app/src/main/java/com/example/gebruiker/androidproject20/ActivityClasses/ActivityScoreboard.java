@@ -87,7 +87,7 @@ public class ActivityScoreboard extends AppCompatActivity {
         Score3.setText(String.valueOf(Game.PlayerList.get(2).GetTotalScore()));
         Score4.setText(String.valueOf(Game.PlayerList.get(3).GetTotalScore()));
     }
-
+ 
     public void FinishGame(View v)
     {
         //used to finish up the current game (or come back later)
