@@ -1,6 +1,8 @@
 package com.example.gebruiker.androidproject20.ActivityClasses;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -87,10 +89,28 @@ public class ActivityScoreboard extends AppCompatActivity {
         Score3.setText(String.valueOf(Game.PlayerList.get(2).GetTotalScore()));
         Score4.setText(String.valueOf(Game.PlayerList.get(3).GetTotalScore()));
     }
- 
+
     public void FinishGame(View v)
     {
         //used to finish up the current game (or come back later)
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(ActivityScoreboard.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+
     }
 
     public void CreatNewSubgameScore(View v)
@@ -98,7 +118,7 @@ public class ActivityScoreboard extends AppCompatActivity {
         //goes to ActivityGame form
         Intent intent = new Intent(ActivityScoreboard.this, ActivityGame.class);
         startActivity(intent);
-    }
+}
 
 
 }
