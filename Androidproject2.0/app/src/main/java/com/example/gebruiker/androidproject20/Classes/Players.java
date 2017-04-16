@@ -20,6 +20,8 @@ public class Players {
     private ArrayList<Score> Scorelist = new ArrayList<>();
 
     //propertys
+    public int GetTotalScore() {return this.TotalScore;}
+
     public int GetID() {return this.ID;}
     //public void SetID(int n) {this.ID = n}
 
@@ -35,6 +37,7 @@ public class Players {
         this.name = name;
         abbrevation = name.substring(0,2).toUpperCase();
         this.status = Gamestatus.Opponent;
+        this.TotalScore = 0;
     }
 
     //methods
@@ -52,6 +55,7 @@ public class Players {
                 }
             }
         }
+        this.TotalScore = Score;
     }
 
 

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.gebruiker.androidproject20.Classes.Game;
 import com.example.gebruiker.androidproject20.Classes.GameClassArray;
@@ -55,7 +56,36 @@ public class ActivityScoreboard extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
-        //here comes code to fill in the scoreboard
+
+        //here comes code to fill in the scoreboard (statics)
+        //names
+        TextView viewName1 = (TextView) findViewById(R.id.tvName1);
+        TextView viewName2 = (TextView) findViewById(R.id.tvName2);
+        TextView viewName3 = (TextView) findViewById(R.id.tvName3);
+        TextView viewName4 = (TextView) findViewById(R.id.tvName4);
+        viewName1.setText(Game.PlayerList.get(0).GetName().toString());
+        viewName2.setText(Game.PlayerList.get(1).GetName().toString());
+        viewName3.setText(Game.PlayerList.get(2).GetName().toString());
+        viewName4.setText(Game.PlayerList.get(3).GetName().toString());
+
+        //abbrevations
+        TextView Abbrev1 = (TextView) findViewById(R.id.TVabbrev1);
+        TextView Abbrev2 = (TextView) findViewById(R.id.TVabbrev2);
+        TextView Abbrev3 = (TextView) findViewById(R.id.TVabbrev3);
+        TextView Abbrev4 = (TextView) findViewById(R.id.TVabbrev4);
+        Abbrev1.setText(Game.PlayerList.get(0).GetAbbrevation().toString());
+        Abbrev2.setText(Game.PlayerList.get(1).GetAbbrevation().toString());
+        Abbrev3.setText(Game.PlayerList.get(2).GetAbbrevation().toString());
+        Abbrev4.setText(Game.PlayerList.get(3).GetAbbrevation().toString());
+
+        TextView Score1 = (TextView) findViewById(R.id.tvScore1);
+        TextView Score2 = (TextView) findViewById(R.id.tvScore2);
+        TextView Score3 = (TextView) findViewById(R.id.tvScore3);
+        TextView Score4 = (TextView) findViewById(R.id.tvScore4);
+        Score1.setText(String.valueOf(Game.PlayerList.get(0).GetTotalScore()));
+        Score2.setText(String.valueOf(Game.PlayerList.get(1).GetTotalScore()));
+        Score3.setText(String.valueOf(Game.PlayerList.get(2).GetTotalScore()));
+        Score4.setText(String.valueOf(Game.PlayerList.get(3).GetTotalScore()));
     }
 
     public void FinishGame(View v)
