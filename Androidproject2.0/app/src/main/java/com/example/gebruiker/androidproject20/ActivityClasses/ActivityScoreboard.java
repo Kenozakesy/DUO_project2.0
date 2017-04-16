@@ -34,14 +34,17 @@ public class ActivityScoreboard extends AppCompatActivity {
             //correct uitlees iets maken
         for (Subgame S: Game.subgameList) {
 
-            int score1, score2, score3, score4;
+            int[] score = new int[4];
 
             for (Score Sc: S.GetScoreList())
             {
-
+                for (int i = 0; i < 3; i++)
+                {
+                    score[i] = Sc.GetScore();
+                }
             }
-            //GameClassArray Arrayclass = new GameClassArray(S.Getnumber(), score here + " " + S.GetPlayedgamemodus().getAbbrevation(),  );
 
+            GameClassArray Arrayclass = new GameClassArray(S.Getnumber(), score[0] + " " + S.GetPlayedgamemodus().getAbbrevation(), score[1] + " " + S.GetPlayedgamemodus().getAbbrevation(), score[2] + " " + S.GetPlayedgamemodus().getAbbrevation(), score[3] + " " + S.GetPlayedgamemodus().getAbbrevation());
         }
 
 

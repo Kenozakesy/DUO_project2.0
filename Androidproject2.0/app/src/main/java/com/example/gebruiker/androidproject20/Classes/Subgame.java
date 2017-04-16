@@ -1,5 +1,6 @@
 package com.example.gebruiker.androidproject20.Classes;
 
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.widget.Button;
 
@@ -48,12 +49,13 @@ public class Subgame {
 
 
     //constructor
-    public Subgame(ArrayList<Gamemodus> gamemoduslist, int hits)
+    public Subgame(ArrayList<Gamemodus> gamemoduslist, int hits, ArrayList<Button> buttonlist)
     {
         Number++;
         this.NumberToView = Number;
         this.gamemodusList = gamemoduslist;
         this.Hits = hits;
+        this.Buttonlist = buttonlist;
 
         //this.Buttonlist = Buttonlist;
     }
@@ -170,13 +172,13 @@ public class Subgame {
         int hitPoints = 0;
         if(this.Hits >= hitsneed)
         {
-            this.PlayerScore = 10 + (5 * (Hits - hitsneed));
-            this.OpponentScore = 10 + (5 * (Hits - hitsneed));
+            this.PlayerScore = this.TotalPoints + (5 * (Hits - hitsneed));
+            this.OpponentScore = this.TotalPoints + (5 * (Hits - hitsneed));
         }
         else
         {
-            this.PlayerScore = 10 + (5 * (hitsneed - Hits));;
-            this.OpponentScore = 10 + (5 * (hitsneed - Hits));;
+            this.PlayerScore = this.TotalPoints + (5 * (hitsneed - Hits));;
+            this.OpponentScore = this.TotalPoints + (5 * (hitsneed - Hits));;
         }
     }
 
@@ -186,13 +188,13 @@ public class Subgame {
 
         if(this.Hits >= hitsneed)
         {
-            this.PlayerScore = playedGamemodus.getPoints() + (playedGamemodus.getExtrapoints() * 3 * (Hits - hitsneed));
-            this.OpponentScore = (playedGamemodus.getPoints() / 3) + (playedGamemodus.getExtrapoints() * (Hits - hitsneed));
+            this.PlayerScore = this.TotalPoints + (playedGamemodus.getExtrapoints() * 3 * (Hits - hitsneed));
+            this.OpponentScore = (this.TotalPoints / 3) + (playedGamemodus.getExtrapoints() * (Hits - hitsneed));
         }
         else
         {
-            this.PlayerScore = playedGamemodus.getPoints() + (playedGamemodus.getExtrapoints() * 3 * (hitsneed - Hits));
-            this.OpponentScore = (playedGamemodus.getPoints() / 3) + (playedGamemodus.getExtrapoints() * (hitsneed - Hits));
+            this.PlayerScore = this.TotalPoints + (playedGamemodus.getExtrapoints() * 3 * (hitsneed - Hits));
+            this.OpponentScore = (this.TotalPoints / 3) + (playedGamemodus.getExtrapoints() * (hitsneed - Hits));
         }
     }
 
@@ -200,8 +202,8 @@ public class Subgame {
     {
         int hitsneed = this.playedGamemodus.getHitsneeded();
 
-        this.PlayerScore = playedGamemodus.getPoints() + (playedGamemodus.getExtrapoints() * 3 * (hitsneed - Hits));
-        this.OpponentScore = (playedGamemodus.getPoints() / 3) + (playedGamemodus.getExtrapoints() * (hitsneed - Hits));
+        this.PlayerScore = this.TotalPoints + (playedGamemodus.getExtrapoints() * 3 * (hitsneed - Hits));
+        this.OpponentScore = ((this.TotalPoints) / 3) + (playedGamemodus.getExtrapoints() * (hitsneed - Hits));
     }
 
 
@@ -320,19 +322,23 @@ public class Subgame {
             {
                 int PointToGet = 0;
 
+                ColorStateList mList = B.getTextColors();
+                int color = mList.getDefaultColor();
+
                 //determine status
                 Gamestatus prstat;
-                if (B.getSolidColor() == Color.YELLOW) {
-                    prstat = Gamestatus.Player;
-                }
-                else if(B.getSolidColor() == Color.RED)
+                switch(color)
                 {
-                    prstat = Gamestatus.Loser;
-                }
-                else {
-                    prstat = Gamestatus.Opponent;
-                }
+                    case Color.YELLOW:
+                        prstat = Gamestatus.Player;
+                        break;
+                    case Color.RED:
+                        prstat = Gamestatus.Loser;
+                        break;
+                    default:
+                        prstat = Gamestatus.Opponent;
 
+                }
 
                 //here determine wether they lost or not (still have to be added)
                 if(prstat == Gamestatus.Player)
@@ -354,13 +360,12 @@ public class Subgame {
                     PointToGet = LoserScore;}
 
                 Score score = new Score(PointToGet, prstat, player);
+
                 Scorelist.add(score);
             }
 
         }
     }
-
-
 
 
 }

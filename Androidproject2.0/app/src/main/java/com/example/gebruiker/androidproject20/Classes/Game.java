@@ -45,6 +45,9 @@ public class Game {
     public static void AddnewSubGame(Subgame prSubgame)
     {
         subgameList.add(prSubgame);
+
+        prSubgame.NewCalculation();
+
         for (Players P: PlayerList)
         {
             P.CalculateTotalScore();

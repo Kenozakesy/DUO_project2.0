@@ -54,14 +54,15 @@ public class ActivityGame extends AppCompatActivity {
         GetColor(butt);
     }
 
+
     public void EnterNewScore(View v)
     {
         ArrayList<Button> ButtonList = new ArrayList<>();
         //get button info
-        Button button1 = (Button) new Button(this); //findViewById(R.id.button1);
-        Button button2 = (Button) new Button(this); //findViewById(R.id.button1);
-        Button button3 = (Button) new Button(this); //findViewById(R.id.button1);
-        Button button4 = (Button) new Button(this); //findViewById(R.id.button1);
+        Button button1 = (Button) findViewById(R.id.btnplayerGameOne); //findViewById(R.id.button1);
+        Button button2 = (Button) findViewById(R.id.btnplayerGameTwo); //findViewById(R.id.button1);
+        Button button3 = (Button) findViewById(R.id.btnplayerGameThree); //findViewById(R.id.button1);
+        Button button4 = (Button) findViewById(R.id.btnplayerGameFour); //findViewById(R.id.button1);
         ButtonList.add(button1);
         ButtonList.add(button2);
         ButtonList.add(button3);
@@ -70,17 +71,17 @@ public class ActivityGame extends AppCompatActivity {
         //get combobox info (voor ophalen van game modes en slagen)
         ArrayList<String> GameStrings = new ArrayList<>();
 
-        Spinner mySpinner1=(Spinner) new Spinner(this); //findViewById(R.id.your_spinner);
-        Spinner mySpinner2=(Spinner) new Spinner(this); //findViewById(R.id.your_spinner);
+//        Spinner mySpinner1=(Spinner) new Spinner(this); //findViewById(R.id.your_spinner);
+//        Spinner mySpinner2=(Spinner) new Spinner(this); //findViewById(R.id.your_spinner);
 
-        String Game1 = mySpinner1.getSelectedItem().toString();
-        GameStrings.add(Game1);
-        String Game2 = mySpinner2.getSelectedItem().toString();
-        GameStrings.add(Game2);
+        //String Game1 = mySpinner1.getSelectedItem().toString();
+        GameStrings.add("Rikken");
+        //String Game2 = mySpinner2.getSelectedItem().toString();
+        GameStrings.add("Beter_rikken");
 
-        Spinner Hits =(Spinner) new Spinner(this); //findViewById(R.id.your_spinner);
-        String text = Hits.getSelectedItem().toString();
-        int hits = Integer.parseInt(text);
+        //Spinner Hits =(Spinner) new Spinner(this); //findViewById(R.id.your_spinner);
+        //String text = Hits.getSelectedItem().toString();
+        int hits = 8; //Integer.parseInt(text);
 
         //voegd te benodigde gamemodes te aan een lijst om een nieuw subgame aan te maken
         ArrayList<Gamemodus> GameModes = new ArrayList<>();
@@ -95,12 +96,10 @@ public class ActivityGame extends AppCompatActivity {
                 }
         }
 
-        Subgame Sub = new Subgame(GameModes ,hits);
+        Subgame Sub = new Subgame(GameModes ,hits, ButtonList);
         Game.AddnewSubGame(Sub);
 
         //berekent nieuwe score
-        Sub.NewCalculation();
-
         Intent intent = new Intent(ActivityGame.this, ActivityScoreboard.class);
         startActivity(intent);
     }
