@@ -22,13 +22,16 @@ public class ActivityScoreboard extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    String[] ar_count = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
-    String[] ar_player_one = {"10","20","30","40","50","60","70","80","90","100","110"};
-    String[] ar_player_two = {"10","20","30","40","50","60","70","80","90","100","110"};
-    String[] ar_player_three = {"10","20","30","40","50","60","70","80","90","100","110"};
-    String[] ar_player_four = {"10","20","30","40","50","60","70","80","90","100","110"};
-
-    GameClassArray[] gamesplayed;
+    String[] ar_count = new String[9];
+    //ar_count = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
+    String[] ar_player_one = new String[9];
+    //String[] ar_player_one = {"10","20","30","40","50","60","70","80","90","100","110"};
+    String[] ar_player_two = new String[9];
+    //String[] ar_player_two = {"10","20","30","40","50","60","70","80","90","100","110"};
+    String[] ar_player_three = new String[9];
+    //String[] ar_player_three = {"10","20","30","40","50","60","70","80","90","100","110"};
+    String[] ar_player_four = new String[9];
+    //String[] ar_player_four = {"10","20","30","40","50","60","70","80","90","100","110"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,19 +40,52 @@ public class ActivityScoreboard extends AppCompatActivity {
             //correct uitlees iets maken
         for (Subgame S: Game.subgameList) {
 
-            int[] score = new int[4];
-
+            int tel = 0;
             for (Score Sc: S.GetScoreList())
             {
-                for (int i = 0; i < 3; i++)
+                switch(tel)
                 {
-                    score[i] = Sc.GetScore();
+                    case 0:
+                        for(int k = 0; k < ar_player_one.length; k++){
+                            if(ar_player_one[k] == null)
+                            {
+                                ar_player_one[k] = String.valueOf(Sc.GetScore());
+                                break;
+                            }
+                        }
+                        break;
+                    case 1:
+                        for(int k = 0; k < ar_player_two.length; k++){
+                            if(ar_player_two[k] == null)
+                            {
+                                ar_player_two[k] = String.valueOf(Sc.GetScore());
+                                break;
+                            }
+                        }
+                        break;
+                    case 2:
+                        for(int k = 0; k < ar_player_three.length; k++){
+                            if(ar_player_three[k] == null)
+                            {
+                                ar_player_three[k] = String.valueOf(Sc.GetScore());
+                                break;
+                            }
+                        }
+                        break;
+                    case 3:
+                        for(int k = 0; k < ar_player_four.length; k++){
+                            if(ar_player_four[k] == null)
+                            {
+                                ar_player_four[k] = String.valueOf(Sc.GetScore());
+                                break;
+                            }
+                        }
+                        break;
                 }
+
+                tel++;
             }
-
-            GameClassArray Arrayclass = new GameClassArray(S.Getnumber(), score[0] + " " + S.GetPlayedgamemodus().getAbbrevation(), score[1] + " " + S.GetPlayedgamemodus().getAbbrevation(), score[2] + " " + S.GetPlayedgamemodus().getAbbrevation(), score[3] + " " + S.GetPlayedgamemodus().getAbbrevation());
         }
-
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         adapter = new com.example.gebruiker.androidproject20.Adapter2(ar_count, ar_player_one, ar_player_two, ar_player_three, ar_player_four);
@@ -58,6 +94,7 @@ public class ActivityScoreboard extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
+
 
         //here comes code to fill in the scoreboard (statics)
         //names

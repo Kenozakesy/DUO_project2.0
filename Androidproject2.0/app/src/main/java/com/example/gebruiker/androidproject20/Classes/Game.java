@@ -52,6 +52,7 @@ public class Game {
         {
             P.CalculateTotalScore();
         }
+
     }
 
     public static void Reset()

@@ -99,9 +99,15 @@ public class ActivityGame extends AppCompatActivity {
         Subgame Sub = new Subgame(GameModes ,hits, ButtonList);
         Game.AddnewSubGame(Sub);
 
-        //berekent nieuwe score
-        Intent intent = new Intent(ActivityGame.this, ActivityScoreboard.class);
-        startActivity(intent);
+        try {
+            //berekent nieuwe score
+            Intent intent = new Intent(ActivityGame.this, ActivityScoreboard.class);
+            startActivity(intent);
+        }
+        catch (Exception e)
+        {
+            e.toString();
+        }
     }
 
 
