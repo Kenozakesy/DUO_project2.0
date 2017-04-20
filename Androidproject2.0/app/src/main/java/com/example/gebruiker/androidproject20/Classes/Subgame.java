@@ -41,8 +41,8 @@ public class Subgame {
     public ArrayList<Score> GetScoreList() {return this.Scorelist;}
     public ArrayList<Gamemodus> GetgamemodusList() {return this.gamemodusList;}
 
-    public int Getnumber(){return this.Number;}
-    public void Setnumber(int n){this.Number = n;}
+    public int Getnumber(){return this.NumberToView;}
+    public void Setnumber(int n){this.NumberToView = n;}
 
     public int GetHits(){return this.Hits;}
     public void SetHits(int n){this.Hits = n;}
