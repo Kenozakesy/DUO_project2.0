@@ -30,6 +30,7 @@ public class ActivityGame extends AppCompatActivity {
         LoadContext();
 
         Spinner spinnerGame = (Spinner) findViewById(R.id.dd_gamemode);
+        Spinner spinnerOver = (Spinner) findViewById(R.id.dd_overbod);
         Spinner spinnerSets = (Spinner) findViewById(R.id.dd_sets);
 
         ArrayList<String> GameStrings = new ArrayList<>();
@@ -45,6 +46,12 @@ public class ActivityGame extends AppCompatActivity {
         spinnerGame.setAdapter(spinnerGameAdapter);
 
         // DROPDOWN2
+        ArrayAdapter<String> spinnerOverAdapter = new ArrayAdapter<String>(ActivityGame.this,
+                android.R.layout.simple_expandable_list_item_1, getResources().getStringArray(R.array.gamemodes_sets));
+        spinnerOverAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerOver.setAdapter(spinnerOverAdapter);
+
+        // DROPDOWN3
         ArrayAdapter<String> spinnerSetsAdapter = new ArrayAdapter<String>(ActivityGame.this,
                 android.R.layout.simple_expandable_list_item_1, getResources().getStringArray(R.array.gamemodes_sets));
         spinnerSetsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
