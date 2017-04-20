@@ -30,10 +30,11 @@
     <Button
         android:id="@+id/btnGamemodes"
         android:layout_width="0dp"
-        android:layout_height="65dp"
+        android:layout_height="55dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="65dp"
+        android:background="@drawable/btn_border_info"
         android:paddingLeft="34dp"
         android:text="Gamemodes"
         android:textAlignment="textStart"
@@ -46,10 +47,11 @@
     <Button
         android:id="@+id/btnPoints"
         android:layout_width="0dp"
-        android:layout_height="65dp"
+        android:layout_height="55dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="129dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_border_info"
         android:paddingLeft="34dp"
         android:text="Puntenverdeling"
         android:textAlignment="textStart"
@@ -57,31 +59,33 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnGamemodes" />
 
     <Button
         android:id="@+id/btnHigher"
         android:layout_width="0dp"
-        android:layout_height="65dp"
+        android:layout_height="55dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="194dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_border_info"
         android:paddingLeft="34dp"
         android:text="Overboden"
         android:textAlignment="textStart"
         android:textSize="20sp"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnPoints" />
     <!--test-->
     <Button
         android:id="@+id/btnInfo"
         android:layout_width="0dp"
-        android:layout_height="65dp"
+        android:layout_height="55dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="259dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_border_info"
         android:paddingLeft="34dp"
         android:text="Status en info"
         android:textAlignment="textStart"
@@ -89,19 +93,22 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnHigher" />
 
     <Button
         android:id="@+id/btnExpl"
         android:layout_width="0dp"
-        android:layout_height="65dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="353dp"
+        android:background="@drawable/btn_border_info"
         android:paddingLeft="34dp"
         android:text="Uitleg game"
         android:textAlignment="textStart"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -126,8 +133,8 @@
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@color/Dark_gray_Rikken"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:srcCompat="@color/Light_gray_Rikken" />
 </android.support.constraint.ConstraintLayout>

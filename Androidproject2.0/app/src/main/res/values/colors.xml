@@ -15,6 +15,7 @@
         <color name="Dark_red_Rikken">#cb2222</color>
 
         <!--GRAY-->
+        <color name="Light_gray_Rikken">#a6a6a6</color>
         <color name="Dark_gray_Rikken">#565656</color>
 </resources>
 
