@@ -120,7 +120,7 @@
         android:layout_height="55dp"
         android:layout_marginBottom="16dp"
         android:layout_marginRight="16dp"
-        android:background="@mipmap/okeI"
+        android:background="@mipmap/okei"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
