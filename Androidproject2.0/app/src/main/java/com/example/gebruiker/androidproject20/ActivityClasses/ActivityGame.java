@@ -32,9 +32,15 @@ public class ActivityGame extends AppCompatActivity {
         Spinner spinnerGame = (Spinner) findViewById(R.id.dd_gamemode);
         Spinner spinnerSets = (Spinner) findViewById(R.id.dd_sets);
 
-        // DROPDOWN2
+        ArrayList<String> GameStrings = new ArrayList<>();
+        for (Gamemodus d : Gamemodus.values()) {
+            GameStrings.add(d.toString());
+        }
+
+        // DROPDOWN1
         ArrayAdapter<String> spinnerGameAdapter = new ArrayAdapter<String>(ActivityGame.this,
-                android.R.layout.simple_expandable_list_item_1, getResources().getStringArray(R.array.active_gamemodes));
+
+                android.R.layout.simple_expandable_list_item_1, GameStrings);
         spinnerGameAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerGame.setAdapter(spinnerGameAdapter);
 
@@ -87,17 +93,17 @@ public class ActivityGame extends AppCompatActivity {
         //get combobox info (voor ophalen van game modes en slagen)
         ArrayList<String> GameStrings = new ArrayList<>();
 
-//        Spinner mySpinner1=(Spinner) new Spinner(this); //findViewById(R.id.your_spinner);
-//        Spinner mySpinner2=(Spinner) new Spinner(this); //findViewById(R.id.your_spinner);
+        String Gamemode1 = (String) findViewById(R.id.dd_gamemode).toString();
+        String Hits= (String) findViewById(R.id.dd_sets).toString();
 
         //String Game1 = mySpinner1.getSelectedItem().toString();
-        GameStrings.add("Rikken");
+        GameStrings.add(Gamemode1);
         //String Game2 = mySpinner2.getSelectedItem().toString();
-        GameStrings.add("Beter_rikken");
+        //GameStrings.add("Beter_rikken");
 
         //Spinner Hits =(Spinner) new Spinner(this); //findViewById(R.id.your_spinner);
         //String text = Hits.getSelectedItem().toString();
-        int hits = 8; //Integer.parseInt(text);
+        int hits = Integer.parseInt(Hits); //Integer.parseInt(text);
 
         //voegd te benodigde gamemodes te aan een lijst om een nieuw subgame aan te maken
         ArrayList<Gamemodus> GameModes = new ArrayList<>();
