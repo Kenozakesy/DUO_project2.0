@@ -3,10 +3,18 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="Light_blue_Rikken">#cff3fb</color>
-    <color name="Light_red_Rikken">#f14848</color>
-    <color name="Dark_gray_Rikken">#565656</color>
-    <color name="Dark_blue_Rikken">#54c2da</color>
-    <color name="Normal_blue_Rikken">#5dd8f3</color>
+
+        <!--BLUE-->
+        <color name="Light_blue_Rikken">#cff3fb</color>
+        <color name="Normal_blue_Rikken">#5dd8f3</color>
+        <color name="Dark_blue_Rikken">#54c2da</color>
+
+        <!--RED-->
+        <color name="Light_red_Rikken">#f14848</color>
+        <color name="Normal_red_Rikken">#ef2828</color>
+        <color name="Dark_red_Rikken">#cb2222</color>
+
+        <!--GRAY-->
+        <color name="Dark_gray_Rikken">#565656</color>
 </resources>
-    <!--test-->
+
