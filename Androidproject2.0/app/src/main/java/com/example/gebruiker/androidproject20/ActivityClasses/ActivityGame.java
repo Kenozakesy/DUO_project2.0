@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -27,6 +28,21 @@ public class ActivityGame extends AppCompatActivity {
 
         //player names need to be loaded
         LoadContext();
+
+        Spinner spinnerGame = (Spinner) findViewById(R.id.dd_gamemode);
+        Spinner spinnerSets = (Spinner) findViewById(R.id.dd_sets);
+
+        // DROPDOWN2
+        ArrayAdapter<String> spinnerGameAdapter = new ArrayAdapter<String>(ActivityGame.this,
+                android.R.layout.simple_expandable_list_item_1, getResources().getStringArray(R.array.active_gamemodes));
+        spinnerGameAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerGame.setAdapter(spinnerGameAdapter);
+
+        // DROPDOWN2
+        ArrayAdapter<String> spinnerSetsAdapter = new ArrayAdapter<String>(ActivityGame.this,
+                android.R.layout.simple_expandable_list_item_1, getResources().getStringArray(R.array.gamemodes_sets));
+        spinnerSetsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerSets.setAdapter(spinnerSetsAdapter);
     }
 
     public void PlayerButton1(View v)

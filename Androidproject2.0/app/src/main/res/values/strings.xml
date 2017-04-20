@@ -1,5 +1,32 @@
 <resources>
     <string name="app_name">Androidproject2.0</string>
     <string name="get_started">Get Started</string>
+    
+    <!--DROPDOWN ACTIVITY GAME-->
+    <string-array name="active_gamemodes">
+        <item>Test 1</item>
+        <item>Test 2</item>
+        <item>Test 3</item>
+        <item>Test 4</item>
+        <item>Test 5</item>
+        <item>Test 6</item>
+        <item>Test 7</item>
+    </string-array>
+    <string-array name="gamemodes_sets">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+    </string-array>
+    
 </resources>
 
