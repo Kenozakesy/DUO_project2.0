@@ -21,7 +21,8 @@
         <activity android:name=".ActivityClasses.ActivityScoreboard" />
         <activity android:name=".ActivityClasses.ActivityOptions" />
         <activity android:name=".ActivityClasses.ActivityGame" />
-        <activity android:name=".ActivityClasses.ShowOverallScore"></activity>
+        <activity android:name=".ActivityClasses.ShowOverallScore" />
+        <activity android:name=".ActivityClasses.ActivityDatabase"></activity>
     </application>
 
 </manifest>
