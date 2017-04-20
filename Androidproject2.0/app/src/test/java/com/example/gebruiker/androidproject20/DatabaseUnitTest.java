@@ -16,7 +16,7 @@ public class DatabaseUnitTest {
     @Test
     public void DatabaseConnectionTest() throws Exception {
 
-
+        //database unit testing does not work because there is never an instance of it in the unit tests
     }
 
 }
