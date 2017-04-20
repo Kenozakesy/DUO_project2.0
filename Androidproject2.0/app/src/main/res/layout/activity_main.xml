@@ -33,6 +33,7 @@
         android:paddingRight="34dp"
         android:text="Scoreboard"
         android:textSize="20sp"
+        android:onClick="SeeScoreBoard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 

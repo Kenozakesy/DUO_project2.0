@@ -43,7 +43,8 @@ public class MainActivity extends Activity {
 
     public void SeeScoreBoard(View v)
     {
-        //Opens a view to a scoreboard
+        Intent intent = new Intent(MainActivity.this, ShowOverallScore.class);
+        startActivity(intent);
     }
 
 
