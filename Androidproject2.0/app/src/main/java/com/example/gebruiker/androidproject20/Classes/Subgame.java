@@ -98,13 +98,13 @@ public class Subgame {
                 Pieken();
                 break;
             case Misere:
-                //call method
+                Misere();
                 break;
             case Open_misere:
-                //call method
+                Misere();
                 break;
             case Misere_M_praatje:
-                //call method
+                Misere();
                 break;
             case Acht_Alleen:
                 Number_Alleen();
@@ -215,30 +215,42 @@ public class Subgame {
         int Opponent = 0;
         int Player = 0;
         int Loser = 0;
+
         //hier scores berekenen
         for (Button B: Buttonlist)
         {
-            if(B.getSolidColor() == Color.YELLOW)
-            {Player++;}
-            else if(B.getSolidColor() == Color.RED)
-            {Loser++;}
-            else{Opponent++;}
+            ColorStateList mList = B.getTextColors();
+            int color = mList.getDefaultColor();
+
+            //determine status
+            switch(color)
+            {
+                case Color.YELLOW:
+                    Player++;
+                    break;
+                case Color.RED:
+                    Loser++;
+                    break;
+                default:
+                   Opponent++;
+
+            }
         }
 
         if(Opponent == Player)
         {
             this.PlayerScore = this.playedGamemodus.getPoints();
-            this.OpponentScore = -this.playedGamemodus.getPoints();
+            this.OpponentScore = this.playedGamemodus.getPoints();
         }
         else if(Opponent == 3 && Player == 1)
         {
             this.PlayerScore = this.playedGamemodus.getPoints();
-            this.OpponentScore = -this.playedGamemodus.getPoints() / 3;
+            this.OpponentScore = this.playedGamemodus.getPoints() / 3;
         }
         else if(Opponent == 1 && Player == 3)
         {
             this.PlayerScore = this.playedGamemodus.getPoints();
-            this.OpponentScore = -this.playedGamemodus.getPoints() * 3;
+            this.OpponentScore = this.playedGamemodus.getPoints() * 3;
         }
         else if(Loser == 1 && Player == 2 && Opponent == 1)
         {
@@ -273,17 +285,28 @@ public class Subgame {
         //hier scores berekenen
         for (Button B: Buttonlist)
         {
-            if(B.getSolidColor() == Color.YELLOW)
-            {Player++;}
-            else if(B.getSolidColor() == Color.RED)
-            {Loser++;}
-            else{Opponent++;}
+            ColorStateList mList = B.getTextColors();
+            int color = mList.getDefaultColor();
+
+            //determine status
+            switch(color)
+            {
+                case Color.YELLOW:
+                    Player++;
+                    break;
+                case Color.RED:
+                    Loser++;
+                    break;
+                default:
+                    Opponent++;
+
+            }
         }
 
         if(Player == 1 && Opponent == 3)
         {
             this.PlayerScore = this.playedGamemodus.getPoints();
-            this.OpponentScore = -this.playedGamemodus.getPoints();
+            this.OpponentScore = -this.playedGamemodus.getPoints() / 30;
         }
         else if(Player == 2 && Opponent == 2)
         {
@@ -293,10 +316,9 @@ public class Subgame {
         else if(Player == 1 && Opponent == 2 && Loser == 1)
         {
             this.PlayerScore = this.playedGamemodus.getPoints();
-            this.OpponentScore = -this.playedGamemodus.getPoints() * 3;
+            this.OpponentScore = 0;
+            this.LoserScore = -this.playedGamemodus.getPoints();
         }
-
-
     }
 
 
