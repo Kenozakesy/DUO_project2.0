@@ -6,52 +6,63 @@
     android:layout_height="match_parent"
     tools:context="com.example.gebruiker.androidproject20.ActivityClasses.ActivityScoreboard">
 
+    <ImageView
+        android:id="@+id/redFooter"
+        android:layout_width="0dp"
+        android:layout_height="86dp"
+        android:layout_marginBottom="-2dp"
+        android:background="@mipmap/lines"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@color/Normal_red_Rikken" />
+
     <Button
-        android:id="@+id/butoton"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
+        android:id="@+id/exitGame"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_alignBaseline="@+id/button2"
         android:layout_alignBottom="@+id/button2"
         android:layout_alignEnd="@+id/TVabbrev4"
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
+        android:background="@mipmap/exit"
         android:onClick="FinishGame"
-        android:text="X"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
+        android:id="@+id/nextRound"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_alignBaseline="@+id/button2"
         android:layout_alignBottom="@+id/button2"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_toStartOf="@+id/button2"
+        android:background="@mipmap/cards"
         android:onClick="CreatNewSubgameScore"
-        android:text="V"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
     <Button
-        android:id="@+id/button8"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
+        android:id="@+id/scoreboard"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_alignBaseline="@+id/button2"
         android:layout_alignBottom="@+id/button2"
         android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="19dp"
         android:layout_toStartOf="@+id/button2"
-        android:text="G"
+        android:background="@mipmap/lines"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/button3" />
+        app:layout_constraintRight_toLeftOf="@+id/nextRound"
+        android:layout_marginRight="20dp" />
 
     <TextView
         android:id="@+id/tvName2"
@@ -59,8 +70,6 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/TVabbrev2"
         android:layout_below="@+id/TVabbrev2"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
         android:text="pls2"
         android:textColor="@color/Dark_gray_Rikken"
         android:textSize="15sp"
@@ -73,7 +82,6 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/TVabbrev2"
         android:layout_below="@+id/TVabbrev2"
-        android:layout_marginLeft="-11dp"
         android:layout_marginTop="29dp"
         android:text="pls2"
         android:textColor="@color/Dark_gray_Rikken"
@@ -87,8 +95,6 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/TVabbrev3"
         android:layout_below="@+id/TVabbrev1"
-        android:layout_marginLeft="-9dp"
-        android:layout_marginTop="0dp"
         android:text="plr4"
         android:textColor="@color/Dark_gray_Rikken"
         android:textSize="15sp"
@@ -101,7 +107,6 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/TVabbrev3"
         android:layout_below="@+id/TVabbrev1"
-        android:layout_marginLeft="0dp"
         android:layout_marginTop="29dp"
         android:text="plr4"
         android:textColor="@color/Dark_gray_Rikken"
@@ -119,9 +124,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/TVabbrev3"
         app:layout_constraintTop_toBottomOf="@+id/TVabbrev3"
         android:layout_below="@+id/TVabbrev3"
-        android:layout_alignStart="@+id/button2"
-        android:layout_marginLeft="-6dp"
-        android:layout_marginTop="0dp" />
+        android:layout_alignStart="@+id/button2" />
 
     <TextView
         android:id="@+id/tvScore3"
@@ -129,7 +132,6 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/button2"
         android:layout_below="@+id/TVabbrev3"
-        android:layout_marginLeft="0dp"
         android:layout_marginTop="29dp"
         android:text="plr3"
         android:textColor="@color/Dark_gray_Rikken"
@@ -162,7 +164,7 @@
         android:layout_marginLeft="60dp"
         android:layout_alignBaseline="@+id/textView3"
         android:layout_alignBottom="@+id/textView3"
-        android:layout_alignEnd="@+id/button3"
+        android:layout_alignEnd="@+id/nextRound"
         android:layout_marginStart="60dp"
         android:layout_marginTop="16dp" />
 
@@ -207,8 +209,6 @@
         app:layout_constraintLeft_toLeftOf="@+id/TVabbrev1"
         android:layout_below="@+id/TVabbrev4"
         android:layout_alignStart="@+id/TVabbrev4"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
         app:layout_constraintTop_toBottomOf="@+id/TVabbrev1" />
 
     <TextView
@@ -217,7 +217,6 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/TVabbrev4"
         android:layout_below="@+id/TVabbrev4"
-        android:layout_marginLeft="0dp"
         android:layout_marginTop="29dp"
         android:text="pls1"
         android:textColor="@color/Dark_gray_Rikken"
@@ -229,12 +228,12 @@
         android:id="@+id/recyclerview"
         android:layout_width="386dp"
         android:layout_height="324dp"
-        android:layout_above="@+id/butoton"
+        android:layout_above="@+id/exitGame"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="13dp"
         android:scrollbars="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/butoton"
-        tools:layout_editor_absoluteX="-1dp"></android.support.v7.widget.RecyclerView>
+        app:layout_constraintBottom_toTopOf="@+id/exitGame"
+        tools:layout_editor_absoluteX="0dp"></android.support.v7.widget.RecyclerView>
 
 </android.support.constraint.ConstraintLayout>
 
