@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context="com.example.gebruiker.androidproject20.ActivityClasses.ActivityDatabase">
 
+    <TextView
+        android:id="@+id/tvDatabase"
+        android:layout_width="140dp"
+        android:layout_height="97dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="216dp" />
 </android.support.constraint.ConstraintLayout>
