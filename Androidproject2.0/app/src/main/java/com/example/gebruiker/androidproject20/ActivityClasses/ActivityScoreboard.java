@@ -40,6 +40,14 @@ public class ActivityScoreboard extends AppCompatActivity {
             //correct uitlees iets maken
         for (Subgame S: Game.subgameList) {
 
+            for(int k = 0; k < ar_count.length; k++){
+                if(ar_count[k] == null)
+                {
+                    ar_count[k] = String.valueOf(S.Getnumber());
+                    break;
+                }
+            }
+
             int tel = 0;
             for (Score Sc: S.GetScoreList())
             {
