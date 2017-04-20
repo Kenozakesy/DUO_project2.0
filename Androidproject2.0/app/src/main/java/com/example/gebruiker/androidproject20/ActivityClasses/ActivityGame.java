@@ -18,7 +18,7 @@ import com.example.gebruiker.androidproject20.Enums.Gamemodus;
 import com.example.gebruiker.androidproject20.R;
 
 import java.util.ArrayList;
-//test
+//test123
 public class ActivityGame extends AppCompatActivity {
 
     @Override
