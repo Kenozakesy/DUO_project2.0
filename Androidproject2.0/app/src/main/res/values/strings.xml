@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Androidproject2.0</string>
     <string name="get_started">Get Started</string>
-    
+
     <!--DROPDOWN ACTIVITY GAME-->
     <string-array name="active_gamemodes">
         <item>Test 1</item>
@@ -27,6 +27,6 @@
         <item>12</item>
         <item>13</item>
     </string-array>
-    
+
 </resources>
 

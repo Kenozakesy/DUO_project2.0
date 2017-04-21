@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.gebruiker.androidproject20">
 
-    <!-- test -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- test -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,7 +21,8 @@
         <activity android:name=".ActivityClasses.ActivityScoreboard" />
         <activity android:name=".ActivityClasses.ActivityOptions" />
         <activity android:name=".ActivityClasses.ActivityGame" />
-        <activity android:name=".ActivityClasses.ShowOverallScore"></activity>
+        <activity android:name=".ActivityClasses.ShowOverallScore" />
+        <activity android:name=".ActivityClasses.ActivityDatabase" />
     </application>
 
 </manifest>

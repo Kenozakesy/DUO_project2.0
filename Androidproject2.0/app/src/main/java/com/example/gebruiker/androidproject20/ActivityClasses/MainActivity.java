@@ -43,8 +43,8 @@ public class MainActivity extends Activity {
 
     public void SeeScoreBoard(View v)
     {
-//        Intent intent = new Intent(MainActivity.this, Show.class);
-//        startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, ActivityDatabase.class);
+            startActivity(intent);
     }
 
 

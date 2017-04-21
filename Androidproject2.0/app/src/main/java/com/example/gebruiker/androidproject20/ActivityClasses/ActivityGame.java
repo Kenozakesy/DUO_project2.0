@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.gebruiker.androidproject20.Classes.Game;
 import com.example.gebruiker.androidproject20.Classes.Subgame;
 import com.example.gebruiker.androidproject20.Enums.Gamemodus;
+import com.example.gebruiker.androidproject20.Enums.Overboden;
 import com.example.gebruiker.androidproject20.R;
 
 import java.util.ArrayList;
@@ -33,21 +34,30 @@ public class ActivityGame extends AppCompatActivity {
         Spinner spinnerOver = (Spinner) findViewById(R.id.dd_overbod);
         Spinner spinnerSets = (Spinner) findViewById(R.id.dd_sets);
 
-        ArrayList<String> GameStrings = new ArrayList<>();
+        ArrayList<String> GameStringsB = new ArrayList<>();
         for (Gamemodus d : Gamemodus.values()) {
-            GameStrings.add(d.toString());
+            if(d.getOverbod() == Overboden.Basis) {
+                GameStringsB.add(d.toString());
+            }
+        }
+
+        ArrayList<String> GameStringsO = new ArrayList<>();
+        for (Gamemodus d : Gamemodus.values()) {
+            if(d.getOverbod() == Overboden.Overbod) {
+                GameStringsO.add(d.toString());
+            }
         }
 
         // DROPDOWN1
         ArrayAdapter<String> spinnerGameAdapter = new ArrayAdapter<String>(ActivityGame.this,
 
-                android.R.layout.simple_expandable_list_item_1, GameStrings);
+                android.R.layout.simple_expandable_list_item_1, GameStringsB);
         spinnerGameAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerGame.setAdapter(spinnerGameAdapter);
 
         // DROPDOWN2
         ArrayAdapter<String> spinnerOverAdapter = new ArrayAdapter<String>(ActivityGame.this,
-                android.R.layout.simple_expandable_list_item_1, getResources().getStringArray(R.array.gamemodes_sets));
+                android.R.layout.simple_expandable_list_item_1, GameStringsO);
         spinnerOverAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerOver.setAdapter(spinnerOverAdapter);
 
@@ -100,13 +110,17 @@ public class ActivityGame extends AppCompatActivity {
         //get combobox info (voor ophalen van game modes en slagen)
         ArrayList<String> GameStrings = new ArrayList<>();
 
-        String Gamemode1 = (String) findViewById(R.id.dd_gamemode).toString();
-        String Hits= (String) findViewById(R.id.dd_sets).toString();
+        Spinner Spinner1 = (Spinner) findViewById(R.id.dd_gamemode);
+        String gamemode1 = Spinner1.getSelectedItem().toString();
 
-        //String Game1 = mySpinner1.getSelectedItem().toString();
-        GameStrings.add(Gamemode1);
-        //String Game2 = mySpinner2.getSelectedItem().toString();
-        //GameStrings.add("Beter_rikken");
+        Spinner Spinner2 = (Spinner) findViewById(R.id.dd_overbod);
+        String gamemode2 = Spinner2.getSelectedItem().toString();
+
+        Spinner Spinner3 = (Spinner) findViewById(R.id.dd_sets);
+        String Hits = Spinner3.getSelectedItem().toString();
+
+        GameStrings.add(gamemode1);
+        GameStrings.add(gamemode2);
 
         //Spinner Hits =(Spinner) new Spinner(this); //findViewById(R.id.your_spinner);
         //String text = Hits.getSelectedItem().toString();

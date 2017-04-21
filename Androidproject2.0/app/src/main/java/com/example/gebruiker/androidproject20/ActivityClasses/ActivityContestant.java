@@ -89,4 +89,10 @@ public class ActivityContestant extends AppCompatActivity {
 
         }
     }
+
+    public void Goback(TextView v)
+    {
+        Intent intent = new Intent(ActivityContestant.this, MainActivity.class);
+        startActivity(intent);
+    }
 }
