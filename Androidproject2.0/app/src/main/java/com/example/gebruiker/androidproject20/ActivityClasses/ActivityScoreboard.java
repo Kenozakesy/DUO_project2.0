@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.Window;
 import android.widget.TextView;
 
 import com.example.gebruiker.androidproject20.Classes.Game;
@@ -36,6 +37,7 @@ public class ActivityScoreboard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_scoreboard);
             //correct uitlees iets maken
         for (Subgame S: Game.subgameList) {
