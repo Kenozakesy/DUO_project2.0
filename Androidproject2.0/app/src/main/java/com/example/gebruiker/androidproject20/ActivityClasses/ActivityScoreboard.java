@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 
+import com.example.gebruiker.androidproject20.Adapters.Adapter2;
 import com.example.gebruiker.androidproject20.Classes.Game;
-import com.example.gebruiker.androidproject20.Classes.GameClassArray;
 import com.example.gebruiker.androidproject20.Classes.Score;
 import com.example.gebruiker.androidproject20.Classes.Subgame;
 import com.example.gebruiker.androidproject20.R;
@@ -98,7 +98,7 @@ public class ActivityScoreboard extends AppCompatActivity {
         }
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-        adapter = new com.example.gebruiker.androidproject20.Adapter2(ar_count, ar_player_one, ar_player_two, ar_player_three, ar_player_four);
+        adapter = new Adapter2(ar_count, ar_player_one, ar_player_two, ar_player_three, ar_player_four);
         layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setLayoutManager(layoutManager);
